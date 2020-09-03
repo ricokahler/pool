@@ -1,24 +1,38 @@
 {
   "name": "@ricokahler/pool",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "My util for limiting the number of concurrent async tasks",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "node ./scripts/register -- ./scripts/build"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ricokahler/pool.git"
+  },
+  "author": {
+    "email": "ricokahler@me.com",
+    "name": "Rico Kahler",
+    "url": "https://github.com/ricokahler"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.11.5",
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-typescript": "^7.10.4",
+    "@babel/register": "^7.11.5",
+    "@ricokahler/exec": "^1.1.0",
     "@rollup/plugin-babel": "^5.2.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
+    "@types/folder-hash": "^3.3.0",
     "@types/jest": "^26.0.13",
+    "folder-hash": "^3.3.3",
     "jest": "^26.4.2",
     "prettier": "^2.1.1",
     "rollup": "^2.26.9",
     "typescript": "^4.0.2"
-  }
+  },
+  "sideEffects": false
 }

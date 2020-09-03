@@ -2,6 +2,12 @@
   "compilerOptions": {
     "target": "esnext",
     "strict": true,
-    "moduleResolution": "node"
-  }
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "outDir": "./dist",
+    "declaration": true,
+    "emitDeclarationOnly": true
+  },
+  "include": ["index.ts"]
 }
