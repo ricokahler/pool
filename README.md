@@ -2,6 +2,10 @@
 
 Pool is like `Promise.all` but you can specific how many concurrent tasks you want at once.
 
+```
+npm i @ricokahler/pool
+```
+
 ```js
 import pool from '@ricokahler/pool';
 
