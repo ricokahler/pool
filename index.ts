@@ -27,74 +27,76 @@ async function pool<T, R>({
     return Promise.all(collection.map((item, i) => task(item, i)));
   }
 
-  let available = maxConcurrency;
-  const errorRef = { current: null as Error | null };
+  const results: Array<[R, number]> = [];
+  const mutableCollection = collection
+    .slice()
+    .map((t, i) => [t, i] as [T, number]);
 
+  let available = maxConcurrency;
+  let done = false;
   let globalResolve!: () => void;
-  const receivedAll = new Promise((resolve) => {
+  let globalReject!: (err: Error) => void;
+  const finalPromise = new Promise((resolve, reject) => {
     globalResolve = resolve;
+    globalReject = reject;
   });
 
-  const listeners = new Set<(err: Error | null) => void>();
-
+  const listeners = new Set<() => void>();
   function notify() {
     for (const listener of listeners) {
-      listener(errorRef.current);
+      listener();
     }
   }
-
   function ready() {
-    let resolve: () => void;
-    let reject: (error: Error) => void;
+    return new Promise((resolve) => {
+      const listener = () => {
+        if (done) {
+          listeners.delete(listener);
+          resolve();
+        } else if (available > 0) {
+          listeners.delete(listener);
+          available -= 1;
+          resolve();
+        }
+      };
 
-    const promise = new Promise((thisResolve, thisReject) => {
-      resolve = thisResolve;
-      reject = thisReject;
+      listeners.add(listener);
+      notify();
     });
-
-    const listener = (err: Error | null) => {
-      if (err) {
-        reject(err);
-      } else if (available > 0) {
-        available -= 1;
-
-        listeners.delete(listener);
-        resolve();
-      }
-    };
-    listeners.add(listener);
-
-    notify();
-
-    return promise;
   }
 
-  const results: Array<[number, R]> = [];
-  const zipped = collection.map((item, index) => ({ item, index }));
+  while (true) {
+    const value = mutableCollection.shift();
+    if (!value) break;
+    if (done) break;
 
-  for (const { item, index } of zipped) {
+    const [t, i] = value;
+
     await ready();
 
-    task(item, index)
-      .then((result) => {
+    task(t, i)
+      .then((r) => {
+        results.push([r, i]);
         available += 1;
-        results.push([index, result]);
 
         if (results.length === collection.length) {
+          done = true;
           globalResolve();
-          return;
         }
       })
-      .catch((thisError) => {
-        errorRef.current = thisError;
+      .catch((e) => {
+        done = true;
+        globalReject(e);
       })
       .finally(notify);
   }
 
-  await ready();
-  await receivedAll;
+  await finalPromise;
 
-  return results.sort(([a], [b]) => a - b).map(([, result]) => result);
+  return results
+    .slice()
+    .sort(([, a], [, b]) => a - b)
+    .map(([r]) => r);
 }
 
 export default pool;
