@@ -153,6 +153,16 @@ it('works with max concurrency greater than one', async () => {
   await promise;
 });
 
+it('works with an empty collection', async () => {
+  await pool({
+    collection: [],
+    task: async () => {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    },
+    maxConcurrency: 10,
+  });
+});
+
 it('returns the collection in input order', async () => {
   const one = createDeferredPromise();
   const two = createDeferredPromise();

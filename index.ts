@@ -27,6 +27,10 @@ async function pool<T, R>({
     return Promise.all(collection.map((item, i) => task(item, i)));
   }
 
+  if (!collection.length) {
+    return [];
+  }
+
   const results: Array<[R, number]> = [];
   const mutableCollection = collection
     .slice()

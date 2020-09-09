@@ -1,6 +1,6 @@
 {
   "name": "@ricokahler/pool",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "My util for limiting the number of concurrent async tasks",
   "main": "index.js",
   "scripts": {
