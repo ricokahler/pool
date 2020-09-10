@@ -1,4 +1,4 @@
-# @ricokahler/pool
+# @ricokahler/pool · [![codecov](https://codecov.io/gh/ricokahler/pool/branch/master/graph/badge.svg)](https://codecov.io/gh/ricokahler/pool) [![github status checks](https://badgen.net/github/checks/ricokahler/pool)](https://github.com/ricokahler/pool/actions) [![bundlephobia](https://badgen.net/bundlephobia/minzip/@ricokahler/pool)](https://bundlephobia.com/result?p=@ricokahler/pool)
 
 Pool is like `Promise.all` but you can specific how many concurrent tasks you want at once.
 
