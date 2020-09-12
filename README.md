@@ -23,3 +23,5 @@ async function blah() {
   console.log(texts); // an array of the 5 items downloaded
 }
 ```
+
+`maxConcurrency` is optional. If omitted it will default to just using `Promise.all` with no max concurrency.
