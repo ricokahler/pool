@@ -15,8 +15,7 @@ interface Params<T, R> {
 }
 
 /**
- * Runs every item in a collection through an async function and returns the
- * result with the option of limiting the number of workers at once.
+ * Like `Promise.all` but you can specify how many concurrent tasks you want at once.
  */
 async function pool<T, R>({
   collection,
