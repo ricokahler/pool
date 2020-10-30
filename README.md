@@ -2,6 +2,8 @@
 
 Pool is like `Promise.all` but you can specify how many concurrent tasks you want at once.
 
+[Well tested.](https://codecov.io/gh/ricokahler/pool) | [Zero dependencies and small size.](https://bundlephobia.com/result?p=@ricokahler/pool)
+
 ```
 npm i @ricokahler/pool
 ```

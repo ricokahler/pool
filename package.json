@@ -1,11 +1,11 @@
 {
   "name": "@ricokahler/pool",
-  "version": "0.2.2",
-  "description": "My util for limiting the number of concurrent async tasks",
+  "version": "1.0.0",
+  "description": "like `Promise.all` but you can specify how many concurrent tasks you want at once",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "node ./scripts/register -- ./scripts/build"
+    "build": "babel-node -x .ts ./scripts/build"
   },
   "repository": {
     "type": "git",
@@ -19,10 +19,10 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "7.12.3",
+    "@babel/node": "^7.12.1",
     "@babel/plugin-transform-runtime": "7.12.1",
     "@babel/preset-env": "7.12.1",
     "@babel/preset-typescript": "7.12.1",
-    "@babel/register": "7.12.1",
     "@ricokahler/exec": "1.1.0",
     "@rollup/plugin-babel": "5.2.1",
     "@rollup/plugin-node-resolve": "9.0.0",
