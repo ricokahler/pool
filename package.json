@@ -25,7 +25,7 @@
     "@babel/preset-typescript": "7.12.1",
     "@ricokahler/exec": "1.1.0",
     "@rollup/plugin-babel": "5.2.1",
-    "@rollup/plugin-node-resolve": "9.0.0",
+    "@rollup/plugin-node-resolve": "10.0.0",
     "@types/folder-hash": "3.3.0",
     "@types/jest": "26.0.15",
     "folder-hash": "4.0.0",
