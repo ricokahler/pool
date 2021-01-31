@@ -1,4 +1,4 @@
-# @ricokahler/pool · [![codecov](https://codecov.io/gh/ricokahler/pool/branch/master/graph/badge.svg)](https://codecov.io/gh/ricokahler/pool) [![github status checks](https://badgen.net/github/checks/ricokahler/pool)](https://github.com/ricokahler/pool/actions) [![bundlephobia](https://badgen.net/bundlephobia/minzip/@ricokahler/pool)](https://bundlephobia.com/result?p=@ricokahler/pool)
+# @ricokahler/pool · [![codecov](https://codecov.io/gh/ricokahler/pool/branch/master/graph/badge.svg)](https://codecov.io/gh/ricokahler/pool) [![github status checks](https://badgen.net/github/checks/ricokahler/pool)](https://github.com/ricokahler/pool/actions) [![bundlephobia](https://badgen.net/bundlephobia/minzip/@ricokahler/pool)](https://bundlephobia.com/result?p=@ricokahler/pool) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 Pool is like `Promise.all` but you can specify how many concurrent tasks you want at once.
 
