@@ -1,0 +1,12 @@
+.github
+coverage
+node_moduels
+.babelrc
+.gitignore
+.releaserc.json
+index.test.ts
+index.ts
+jest.config.js
+package-lock.json
+renovate.json
+tsconfig.json
