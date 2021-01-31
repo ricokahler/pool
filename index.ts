@@ -39,7 +39,7 @@ async function pool<T, R>({
   let done = false;
   let globalResolve!: () => void;
   let globalReject!: (err: Error) => void;
-  const finalPromise = new Promise((resolve, reject) => {
+  const finalPromise = new Promise<void>((resolve, reject) => {
     globalResolve = resolve;
     globalReject = reject;
   });
@@ -51,7 +51,7 @@ async function pool<T, R>({
     }
   }
   function ready() {
-    return new Promise((resolve) => {
+    return new Promise<void>((resolve) => {
       const listener = () => {
         if (done) {
           listeners.delete(listener);
