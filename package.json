@@ -2,37 +2,41 @@
   "name": "@ricokahler/pool",
   "version": "1.0.0",
   "description": "like `Promise.all` but you can specify how many concurrent tasks you want at once",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "build": "babel-node -x .ts ./scripts/build"
-  },
+  "keywords": [
+    "promise",
+    "concurrency",
+    "p-queue",
+    "async-queue"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ricokahler/pool.git"
   },
+  "license": "MIT",
   "author": {
-    "email": "ricokahler@me.com",
     "name": "Rico Kahler",
+    "email": "ricokahler@me.com",
     "url": "https://github.com/ricokahler"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/core": "7.12.10",
-    "@babel/node": "7.12.10",
-    "@babel/plugin-transform-runtime": "7.12.10",
-    "@babel/preset-env": "7.12.11",
-    "@babel/preset-typescript": "7.12.7",
-    "@ricokahler/exec": "1.1.0",
-    "@rollup/plugin-babel": "5.2.1",
-    "@rollup/plugin-node-resolve": "11.0.0",
-    "@types/folder-hash": "3.3.0",
-    "@types/jest": "26.0.15",
-    "folder-hash": "4.0.0",
-    "jest": "26.6.3",
-    "prettier": "2.1.2",
-    "rollup": "2.33.2",
-    "typescript": "4.0.5"
+  "sideEffects": false,
+  "exports": "./dist/index.modern.js",
+  "main": "./dist/index.js",
+  "unpkg": "./dist/index.umd.js",
+  "module": "./dist/index.module.js",
+  "source": "./index.ts",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "microbundle",
+    "prepare": "npm run build",
+    "test": "jest"
   },
-  "sideEffects": false
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "26.0.15",
+    "jest": "26.6.3",
+    "microbundle": "^0.13.0",
+    "prettier": "2.1.2",
+    "semantic-release": "^17.3.7",
+    "typescript": "4.0.5"
+  }
 }

@@ -1,4 +1,4 @@
-import pool from './';
+import pool from './index';
 
 function createDeferredPromise<T>() {
   let _resolve!: (t?: T) => void;
