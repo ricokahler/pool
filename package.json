@@ -19,14 +19,18 @@
     "url": "https://github.com/ricokahler"
   },
   "sideEffects": false,
-  "exports": "./dist/index.modern.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js"
+    }
+  },
   "main": "./dist/index.js",
   "unpkg": "./dist/index.umd.js",
   "module": "./dist/index.module.js",
   "source": "./index.ts",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "microbundle",
+    "build": "microbundle --target node",
     "prepare": "npm run build",
     "test": "jest"
   },
