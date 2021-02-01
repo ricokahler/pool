@@ -19,11 +19,6 @@
     "url": "https://github.com/ricokahler"
   },
   "sideEffects": false,
-  "exports": {
-    ".": {
-      "require": "./dist/index.js"
-    }
-  },
   "main": "./dist/index.js",
   "unpkg": "./dist/index.umd.js",
   "module": "./dist/index.module.js",
