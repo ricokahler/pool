@@ -30,7 +30,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "7.13.0",
+    "@babel/preset-typescript": "7.14.5",
     "@types/jest": "26.0.23",
     "jest": "27.0.6",
     "microbundle": "0.13.3",
