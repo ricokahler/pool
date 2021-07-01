@@ -32,7 +32,7 @@
   "devDependencies": {
     "@babel/preset-typescript": "7.13.0",
     "@types/jest": "26.0.23",
-    "jest": "27.0.3",
+    "jest": "27.0.6",
     "microbundle": "0.13.3",
     "prettier": "2.3.2",
     "semantic-release": "17.4.3",
