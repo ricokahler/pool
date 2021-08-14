@@ -2,16 +2,16 @@ interface Params<T, R> {
   /**
    * The input collection that will feed the tasks
    */
-  collection: T[];
+  readonly collection: readonly T[];
   /**
    * A function that takes an item from the collection and returns a result
    */
-  task: (t: T, index: number) => Promise<R>;
+   readonly task: (t: T, index: number) => Promise<R>;
   /**
    * The max number of concurrent tasks. If not provided, all tasks are ran at
    * once
    */
-  maxConcurrency?: number;
+   readonly maxConcurrency?: number;
 }
 
 /**
