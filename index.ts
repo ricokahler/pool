@@ -31,9 +31,7 @@ async function pool<T, R>({
   }
 
   const results: Array<[R, number]> = [];
-  const mutableCollection = collection
-    .slice()
-    .map((t, i) => [t, i] as [T, number]);
+  const mutableCollection = collection.map((t, i) => [t, i] as [T, number]);
 
   let available = maxConcurrency;
   let done = false;

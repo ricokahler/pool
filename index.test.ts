@@ -283,3 +283,20 @@ it('throws if the last item throws', async () => {
   }
   expect(rejected).toBe(true);
 });
+
+it('does not mutate the collection', async () => {
+  const a = {};
+  const b = {};
+  const c = {};
+  const collection = [a, b, c];
+  await pool({
+    collection,
+    task: () => new Promise(resolve => setTimeout(resolve, 100)),
+    maxConcurrency: 10
+  });
+
+  expect(collection.length).toBe(3);
+  expect(collection[0]).toBe(a);
+  expect(collection[1]).toBe(b);
+  expect(collection[2]).toBe(c);
+});
