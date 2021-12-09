@@ -1,12 +1,14 @@
 .github
 coverage
-node_moduels
+node_modules
+scripts
 .babelrc
+.eslintrc
 .gitignore
 .releaserc.json
 index.test.ts
-index.ts
 jest.config.js
 package-lock.json
 renovate.json
+rollup.config.js
 tsconfig.json
