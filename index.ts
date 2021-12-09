@@ -1,4 +1,4 @@
-interface Params<T, R> {
+interface PoolOptions<T, R> {
   /**
    * The input collection that will feed the tasks
    */
@@ -6,12 +6,12 @@ interface Params<T, R> {
   /**
    * A function that takes an item from the collection and returns a result
    */
-   readonly task: (t: T, index: number) => Promise<R>;
+  readonly task: (t: T, index: number) => Promise<R>;
   /**
    * The max number of concurrent tasks. If not provided, all tasks are ran at
    * once
    */
-   readonly maxConcurrency?: number;
+  readonly maxConcurrency?: number;
 }
 
 /**
@@ -21,7 +21,7 @@ async function pool<T, R>({
   collection,
   task,
   maxConcurrency,
-}: Params<T, R>): Promise<R[]> {
+}: PoolOptions<T, R>): Promise<R[]> {
   if (!maxConcurrency) {
     return Promise.all(collection.map((item, i) => task(item, i)));
   }
@@ -66,6 +66,7 @@ async function pool<T, R>({
     });
   }
 
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     const value = mutableCollection.shift();
     if (!value) break;
